@@ -1,3 +1,1 @@
-define(["require", "exports"], function (require, exports) {
-    exports.xml = { "amp": "&", "apos": "'", "gt": ">", "lt": "<", "quot": "\"" };
-});
+exports.json = { "amp": "&", "apos": "'", "gt": ">", "lt": "<", "quot": "\"" };

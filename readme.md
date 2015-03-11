@@ -1,8 +1,6 @@
-#entities [![NPM version](http://img.shields.io/npm/v/entities.svg)](https://npmjs.org/package/entities)  [![Downloads](https://img.shields.io/npm/dm/entities.svg)](https://npmjs.org/package/entities) [![Build Status](http://img.shields.io/travis/fb55/entities.svg)](http://travis-ci.org/fb55/entities) [![Coverage](http://img.shields.io/coveralls/fb55/entities.svg)](https://coveralls.io/r/fb55/entities)
-
+#Entities
 En- & decoder for XML/HTML entities.
-
-##How to…
+TypeScript version
 
 ###…install `entities`
 

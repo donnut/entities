@@ -9,8 +9,8 @@ module decodeCodePoint {
 			return "\uFFFD";
 		}
 
-		if(codePoint in decodeMap.decode){
-			codePoint = decodeMap.decode[codePoint];
+		if(codePoint in decodeMap.json){
+			codePoint = decodeMap.json[codePoint];
 		}
 
 		var output = "";

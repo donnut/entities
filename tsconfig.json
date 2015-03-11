@@ -2,7 +2,7 @@
     "version": "1.4.1",
     "compilerOptions": {
         "target": "es5",
-        "module": "amd",
+        "module": "commonjs",
         "declaration": false,
         "noImplicitAny": false,
         "removeComments": true,
@@ -13,6 +13,7 @@
         "!./node_modules/**/*.ts"
     ],
     "files": [
+        "./index.ts",
         "./lib/decode.ts",
         "./lib/decode_codepoint.ts",
         "./lib/encode.ts",

@@ -12,7 +12,7 @@ describe("Encode->decode test", function(){
 			input: "&#38;",
 			xml: "&amp;#38;",
 			html: "&amp;&num;38&semi;"
-		},
+		}
 	];
 	testcases.forEach(function(tc) {
 		var encodedXML = entities.encodeXML(tc.input);
@@ -83,9 +83,9 @@ describe("Documents", function(){
 	.forEach(function(doc, i){
 		describe("Decode", function(){
 			it(levels[i], function(){
-				Object.keys(doc).forEach(function(e){
+				Object.keys(doc.json).forEach(function(e){
 					for(var l = i; l < levels.length; l++){
-						assert.equal(entities.decode("&" + e + ";", l), doc[e]);
+						assert.equal(entities.decode("&" + e + ";", l), doc.json[e]);
 					}
 				});
 			});
@@ -93,9 +93,9 @@ describe("Documents", function(){
 
 		describe("Decode strict", function(){
 			it(levels[i], function(){
-				Object.keys(doc).forEach(function(e){
+				Object.keys(doc.json).forEach(function(e){
 					for(var l = i; l < levels.length; l++){
-						assert.equal(entities.decodeStrict("&" + e + ";", l), doc[e]);
+						assert.equal(entities.decodeStrict("&" + e + ";", l), doc.json[e]);
 					}
 				});
 			});
@@ -103,16 +103,17 @@ describe("Documents", function(){
 
 		describe("Encode", function(){
 			it(levels[i], function(){
-				Object.keys(doc).forEach(function(e){
+				Object.keys(doc.json).forEach(function(e){
 					for(var l = i; l < levels.length; l++){
-						assert.equal(entities.decode(entities.encode(doc[e], l), l), doc[e]);
+						assert.equal(entities.decode(entities.encode(doc.json[e], l), l), doc.json[e]);
 					}
 				});
 			});
 		});
 	});
 
-	var legacy = require("../maps/legacy.json");
+	var legacyMap = require("../maps/legacy");
+    var legacy = legacyMap.json;
 
 	describe("Legacy", function(){
 		it("should decode", runLegacy);

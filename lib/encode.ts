@@ -1,12 +1,12 @@
 import xmlJSON = require("../maps/xml");
 import entitiesJSON = require("../maps/entities");
 
-var inverseXML = getInverseObj(xmlJSON.xml),
+var inverseXML = getInverseObj(xmlJSON.json),
     xmlReplacer = getInverseReplacer(inverseXML);
 
 export var XML = getInverse(inverseXML, xmlReplacer);
 
-var inverseHTML = getInverseObj(entitiesJSON.entities),
+var inverseHTML = getInverseObj(entitiesJSON.json),
     htmlReplacer = getInverseReplacer(inverseHTML);
 
 export var HTML = getInverse(inverseHTML, htmlReplacer);

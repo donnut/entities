@@ -3,8 +3,8 @@ import legacyMap = require("../maps/legacy");
 import xmlMap    = require("../maps/xml");
 import decodeCodePoint = require("./decode_codepoint");
 
-var decodeXMLStrict  = getStrictDecoder(xmlMap.xml),
-    decodeHTMLStrict = getStrictDecoder(entityMap.entities);
+var decodeXMLStrict  = getStrictDecoder(xmlMap.json),
+    decodeHTMLStrict = getStrictDecoder(entityMap.json);
 
 function getStrictDecoder(map){
 	var keys = Object.keys(map).join("|"),
@@ -20,10 +20,10 @@ function getStrictDecoder(map){
 }
 
 var decodeHTML = (function(){
-	var legacy = Object.keys(legacyMap.legacy)
+	var legacy = Object.keys(legacyMap.json)
 		.sort(sorter);
 
-	var keys = Object.keys(entityMap.entities)
+	var keys = Object.keys(entityMap.json)
 		.sort(sorter);
 
 	for(var i = 0, j = 0; i < keys.length; i++){
@@ -36,7 +36,7 @@ var decodeHTML = (function(){
 	}
 
 	var re = new RegExp("&(?:" + keys.join("|") + "|#[xX][\\da-fA-F]+;?|#\\d+;?)", "g"),
-	    replace = getReplacer(entityMap.entities);
+	    replace = getReplacer(entityMap.json);
 
 	function replacer(str){
 		if(str.substr(-1) !== ";") str += ";";

@@ -1,33 +1,24 @@
-var encode = require("./lib/encode.js"),
-    decode = require("./lib/decode.js");
-
-exports.decode = function(data, level){
-	return (!level || level <= 0 ? decode.XML : decode.HTML)(data);
+var enc = require("./lib/encode");
+var dec = require("./lib/decode");
+exports.decode = function (data, level) {
+    return (!level || level <= 0 ? dec.XML : dec.HTML)(data);
 };
-
-exports.decodeStrict = function(data, level){
-	return (!level || level <= 0 ? decode.XML : decode.HTMLStrict)(data);
+exports.decodeStrict = function (data, level) {
+    return (!level || level <= 0 ? dec.XML : dec.HTMLStrict)(data);
 };
-
-exports.encode = function(data, level){
-	return (!level || level <= 0 ? encode.XML : encode.HTML)(data);
+exports.encode = function (data, level) {
+    return (!level || level <= 0 ? enc.XML : enc.HTML)(data);
 };
-
-exports.encodeXML = encode.XML;
-
-exports.encodeHTML4 =
-exports.encodeHTML5 =
-exports.encodeHTML  = encode.HTML;
-
-exports.decodeXML =
-exports.decodeXMLStrict = decode.XML;
-
-exports.decodeHTML4 =
-exports.decodeHTML5 =
-exports.decodeHTML = decode.HTML;
-
-exports.decodeHTML4Strict =
-exports.decodeHTML5Strict =
-exports.decodeHTMLStrict = decode.HTMLStrict;
-
-exports.escape = encode.escape;
+exports.encodeXML = enc.XML;
+exports.encodeHTML4 = enc.HTML;
+exports.encodeHTML5 = enc.HTML;
+exports.encodeHTML = enc.HTML;
+exports.decodeXML = dec.XML;
+exports.decodeXMLStrict = dec.XML;
+exports.decodeHTML4 = dec.HTML;
+exports.decodeHTML5 = dec.HTML;
+exports.decodeHTML = dec.HTML;
+exports.decodeHTML4Strict = dec.HTMLStrict;
+exports.decodeHTML5Strict = dec.HTMLStrict;
+exports.decodeHTMLStrict = dec.HTMLStrict;
+exports.escape = enc.escapeXML;

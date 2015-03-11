@@ -1,1 +1,1 @@
-export var xml = {"amp":"&","apos":"'","gt":">","lt":"<","quot":"\""};
+export var json = {"amp":"&","apos":"'","gt":">","lt":"<","quot":"\""};
